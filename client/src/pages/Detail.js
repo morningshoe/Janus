@@ -4,7 +4,6 @@ import Nav from "../components/Nav";
 import NavLoginedIn from "../components/NavLoginedIn";
 import { Col, Row, Container } from "../components/Grid";
 import "./style.css"
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Moment from 'react-moment';
 
@@ -26,7 +25,6 @@ class Detail extends Component {
   apiNewsCall = () => {
     API.getNewsFive()
       .then((res) => {
-        toast.info('Loading...')
         this.setState({ allNews: res.data })
       }).catch(err => console.log(err));
   }

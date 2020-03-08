@@ -5,7 +5,6 @@ import NavLoginedIn from "../components/NavLoginedIn";
 import { Col, Row, Container } from "../components/Grid";
 import { Link } from "react-router-dom";
 import "./style.css"
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Moment from 'react-moment';
 
@@ -26,7 +25,6 @@ class Blogs extends Component {
     API.changeCat({event:event})
     .then((res) => {
       this.setState({allBlogs:[]})
-      toast.info("Loading Blogs... !");
       this.setState({ allBlogs: res.data })
     }).catch(err => console.log(err))
   }
@@ -40,7 +38,6 @@ class Blogs extends Component {
   getAllBlogs = () => {
     API.getAllBlogs()
       .then((res) => {
-        toast.info("Loading Blogs... !");
         this.setState({ allBlogs: res.data })
       }).catch(err => console.log(err))
   }

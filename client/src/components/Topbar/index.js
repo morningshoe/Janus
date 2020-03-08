@@ -6,7 +6,7 @@ function Topbar() {
     <div className="container-fluid tobarCustomPadding">
       <div className="row bg-light topbar">
         <div className="col-md-6">
-          <a className="navbar-brand" href="/"> <i className="fas fa-umbrella" aria-hidden="true"></i>  Forumbrella. </a>
+          <a className="navbar-brand" href="/"> <i className="fas fa-umbrella" aria-hidden="true"></i>  Janus </a>
         </div>
         <div className="col-md-6 topBarIcons">
           <span className="top-icon"><a href="#"><i className="fas fa-search" aria-hidden="true">  </i></a></span>

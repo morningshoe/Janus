@@ -4,8 +4,8 @@ import { Col, Row, Container, ColLight } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 import Nav from "../components/Nav";
 import NavLoginedIn from "../components/NavLoginedIn";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class NewPost extends Component {
   state = {
@@ -18,40 +18,36 @@ class NewPost extends Component {
     this.loadCategories();
     this.checkSession();
     this.getAllSessionForMenu();
-
   }
-
 
   getAllSessionForMenu = () => {
     API.getAllSessionForMenu()
-      .then((res) => {
-        if (!(res.data.isAuthorLoggin)) {
+      .then(res => {
+        if (!res.data.isAuthorLoggin) {
           this.setState({
             menu: false
-          })
+          });
         } else {
           this.setState({
             menu: true
-          })
+          });
         }
       })
-      .catch(err => console.log(err))
-  }
+      .catch(err => console.log(err));
+  };
   checkSession = () => {
     API.getAllSession()
-      .then((res) => {
-
-        if (!(res.data.isAuthorLoggin)) {
-          this.props.history.push('/login', { some: 'state' })
+      .then(res => {
+        if (!res.data.isAuthorLoggin) {
+          this.props.history.push("/login", { some: "state" });
         } else {
-
           this.setState({
             AuthorId: res.data.authorId
-          })
+          });
         }
       })
-      .catch(err => console.log(err))
-  }
+      .catch(err => console.log(err));
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -63,19 +59,20 @@ class NewPost extends Component {
   }
   loadCategories = () => {
     API.getCategories()
-      .then((res) => {
-        this.setState({ categories: res.data.dataCategory })
-      }).catch(err => console.log(err));
-  }
+      .then(res => {
+        this.setState({ categories: res.data.dataCategory });
+      })
+      .catch(err => console.log(err));
+  };
 
   handleSelectChange = event => {
     this.setState({
-      category: event.target.value,
+      category: event.target.value
     });
   };
   handleTextChange = event => {
     this.setState({
-      content: event.target.value,
+      content: event.target.value
     });
   };
   handleInputChange = event => {
@@ -90,11 +87,11 @@ class NewPost extends Component {
       description: "",
       body: "",
       image: ""
-    })
-    document.getElementById('bodyToReset').value = "";
-  }
+    });
+    document.getElementById("bodyToReset").value = "";
+  };
   handleFormSubmit = event => {
-    event.preventDefault()
+    event.preventDefault();
     API.savePost({
       title: this.state.title,
       description: this.state.description,
@@ -103,13 +100,12 @@ class NewPost extends Component {
       AuthorId: this.state.AuthorId,
       CategoryId: this.state.category
     })
-      .then((result) => {
+      .then(result => {
         toast.info("Your blog has been posted!");
-        this.resetFields()
+        this.resetFields();
       })
       .catch(err => console.log(err));
-  }
-
+  };
 
   render() {
     const { editorState } = this.state;
@@ -146,18 +142,24 @@ class NewPost extends Component {
                 <label>Post Category:</label>
                 <div className="form-group">
                   {this.state.categories.length ? (
-                    <select className="postCategory" name="category" value={this.state.category} onChange={this.handleSelectChange}>
-
+                    <select
+                      className="postCategory"
+                      name="category"
+                      value={this.state.category}
+                      onChange={this.handleSelectChange}
+                    >
                       {this.state.categories.map(singleCategory => (
-                        <option key={singleCategory.id} value={singleCategory.id}>
+                        <option
+                          key={singleCategory.id}
+                          value={singleCategory.id}
+                        >
                           {singleCategory.name}
                         </option>
                       ))}
                     </select>
-
                   ) : (
-                      <h3>No Results to Display</h3>
-                    )}
+                    <h3>No Results to Display</h3>
+                  )}
                 </div>
 
                 <label>Post Content:</label>
@@ -168,8 +170,7 @@ class NewPost extends Component {
                     onChange={this.handleTextChange}
                     name="content"
                     placeholder="content (required)"
-                  >
-                  </textarea>
+                  ></textarea>
                 </div>
                 <label>Featured Image (URL):</label>
                 <div className="form-group">
@@ -178,15 +179,18 @@ class NewPost extends Component {
                     placeholder="http:// (required)"
                     className="form-control"
                     onChange={this.handleInputChange}
-                    name="image" />
+                    name="image"
+                  />
                 </div>
                 <hr />
-                <FormBtn
-                  onClick={this.handleFormSubmit}
+                <FormBtn onClick={this.handleFormSubmit}>Post</FormBtn>
+                <a
+                  onClick={() => this.resetFields()}
+                  href="#"
+                  className="registrationLink"
                 >
-                  Post
-              </FormBtn>
-                <a onClick={() => this.resetFields()} href="#" className="registrationLink">Reset</a>
+                  Reset
+                </a>
               </form>
             </ColLight>
             <Col size="md-2"></Col>

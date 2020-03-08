@@ -69,7 +69,6 @@ class Login extends Component {
       .then((res) => {
         console.log(res)
         if (res.data.isSuccess === "Yes") {
-          toast.info("You are logged in... !");
           this.props.history.push('/new-post', { some: 'state' })
         }
         if (res.data.isSuccess === "No") {
