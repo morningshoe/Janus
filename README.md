@@ -1,4 +1,4 @@
-# Forumbrella
+# Janus
 
 Forumbrella is place where great ideas are kept dry and shared and talked about.
 
