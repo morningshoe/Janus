@@ -1,10 +1,10 @@
 # Janus
 
-Forumbrella is place where great ideas are kept dry and shared and talked about.
+Janus is place where people come together to talk about what's happening in the world around them.
 
 ## Installation
 
-Use these packages to start Forumbrella!
+Use these packages to start Janus!
 
 ```bash
 npm install
