@@ -113,7 +113,7 @@ class Detail extends Component {
                                 }
                               })()}
                               
-                            <p><strong>Title: </strong>{singleNews.title}</p>
+                            <p className="blog-title">{singleNews.title}</p>
                             <a target="_blank" href={singleNews.url} className="NewsReadMore">Read More...</a>
                           </Col>
 

@@ -74,7 +74,7 @@ class Registration extends Component {
         })
           .then((result) => {
             if (result.data.existed === true) {
-              toast.error("User already existed...!");
+              toast.error("User already exists...!");
 
             }
             else {

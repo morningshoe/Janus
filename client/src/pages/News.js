@@ -134,7 +134,7 @@ class News extends Component {
                               })()}
                             </Col>
                             <Col size={"md-9"}>
-                              <p><strong>Title: </strong>{singleNews.title}</p>
+                              <p className="blog-title">{singleNews.title}</p>
                               <p><small>Author: {singleNews.author}</small></p>
                               <p><strong>Description: </strong>{singleNews.description}</p>
                               <a target="_blank" href={singleNews.url} className="NewsReadMore">Read More...</a>
@@ -160,7 +160,7 @@ class News extends Component {
                         <Row>
                           <Col size="md-12">
                             <img className="img-thumbnail" src={singleBlog.image} />
-                            <p><strong>Title: </strong>{singleBlog.title}</p>
+                            <p className="blog-title">{singleBlog.title}</p>
                             <Link className="text-center NewsReadMore" to={"/blogs/" + singleBlog.id}>Read More!</Link>
                           </Col>
                         </Row>
