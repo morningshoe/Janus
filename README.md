@@ -1,4 +1,4 @@
-# Janus
+# Janus - [News for those who like to share](https://janus-news.herokuapp.com/)
 
 Janus is place where people come together to talk about what's happening in the world around them.
 
